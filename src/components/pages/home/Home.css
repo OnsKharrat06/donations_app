@@ -1,0 +1,20 @@
+a{
+   text-decoration: none; 
+}
+
+.heading{
+   font-size: 100px;
+   font-weight: 800;
+}
+.first-button{
+   margin-right: 15px !important;
+}
+
+.container h1{
+   color: #896cc9;
+}
+
+.container p{
+   font-size: 20px;
+   color: #636365;
+}

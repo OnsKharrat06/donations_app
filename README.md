@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# eStore | Electronic Store for Online Shopping 
+Electroic store for online shopping. This project was build using React, Redux, Bootstrap, Material UI, API, and LocalStorage.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 'npm start' command runs the app in the development mode whereas 'npm run build' generates the production files.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Home Component
+Basic landing page of the application.
 
-## Available Scripts
+![home-min](https://user-images.githubusercontent.com/58258334/227798403-1c685118-90ec-4023-b803-4681b2124334.jpg)
 
-In the project directory, you can run:
+## Register Component
+Where user can register into the system.
 
-### `npm start`
+![register-min](https://user-images.githubusercontent.com/58258334/227798417-7d9dfb28-5459-4dfc-a916-74f2920717ca.jpg)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Login Component
+Where user can login into the system.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![login-min](https://user-images.githubusercontent.com/58258334/227798429-a0721307-e3de-43a5-ac91-e1a828f26068.jpg)
 
-### `npm test`
+## Shop Component
+Where logged in user can shop any item by clicking the product whereas logged out user has read only access.  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![shop-min](https://user-images.githubusercontent.com/58258334/227798451-b42b913d-ff8e-4cca-90e2-ca56774e059b.jpg)
 
-### `npm run build`
+## Filter Products by Category
+Where user can filter products using category buttons like: all, mens, womens, jewellery, and electronics.  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![filter-by-category-men-min](https://user-images.githubusercontent.com/58258334/227798471-5c7766de-9edb-4af8-81e9-995c166e61be.jpg)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Filter Products by Search Bar Text
+Where user can filter products by typing any valid text to search bar.  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![filter-by-search-text-min](https://user-images.githubusercontent.com/58258334/227798490-45f2bfc8-937d-4a6c-b480-0a3c22aa3c27.jpg)
 
-### `npm run eject`
+## Filter Products by Price Range
+Where user can filter products by selecting valid price range checkboxes.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![filter-by-range-min](https://user-images.githubusercontent.com/58258334/227798519-ab31dd25-25ff-4f07-894b-44b33e78d91e.jpg)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Filter Products by Rating
+Where user can filter products using slider 0 to 5 star.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![filter-by-rating-min](https://user-images.githubusercontent.com/58258334/227798536-f9d448f8-f131-4f02-9a7b-e317ee4157b7.jpg)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Filter Products by Complex Filtering
+Where user can apply all the filters simuntaneously to extract targetted products.
 
-## Learn More
+![complex-filter-by-all-min](https://user-images.githubusercontent.com/58258334/227798555-29abf7dc-740a-48a2-ac1f-15295042fb25.jpg)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Individual Product Component
+Where user can see all the details of a product and perform activities like add to cart, remove from cart, add to wishlist, and remove from wishlist.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![product-add-to-cart-min](https://user-images.githubusercontent.com/58258334/227798564-8e459049-a9a3-42ac-8760-f255197dbddb.jpg)
 
-### Code Splitting
+![product-remove-from-cart-min](https://user-images.githubusercontent.com/58258334/227798575-cebda8e9-27fa-487a-b734-9a6553bbe84e.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Cart Component
+Where user can see the total amount of all the products and proceed to checkout.
 
-### Analyzing the Bundle Size
+![cart-min](https://user-images.githubusercontent.com/58258334/227798585-24ea18ec-2c07-44b5-b410-cc55c9a58983.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Wishlist Component
+Where user can see their favorite products.
 
-### Making a Progressive Web App
+![wishlist-min](https://user-images.githubusercontent.com/58258334/227798604-ce7fcb5e-fc5b-43c6-9252-07e2b9e646f8.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Account Icon
+Where user can see their Profile, Change Password, and Logout.
 
-### Advanced Configuration
+![account-min](https://user-images.githubusercontent.com/58258334/227798612-d05a2e26-76ed-44f5-87b2-a553b9209061.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Profile Component
+Where user can see their profile.
 
-### Deployment
+![profile-min](https://user-images.githubusercontent.com/58258334/227798631-4fccdaa2-6335-46c0-be42-ff063fe35332.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Change Password Component
+Where user can change password to the system.
 
-### `npm run build` fails to minify
+![change-password-min](https://user-images.githubusercontent.com/58258334/227798649-14dcbdc7-f2df-4d3e-8509-b7514fe50562.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 404 Component
+Activates when user tries to access any wild route.
+
+![404-min](https://user-images.githubusercontent.com/58258334/227798661-82e76d38-5ef7-49b0-bb2c-a879e2ca96a4.jpg)

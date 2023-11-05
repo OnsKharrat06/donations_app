@@ -1,0 +1,37 @@
+a{
+    text-decoration: none; 
+ }
+ 
+.heading{
+    font-size: 60px;
+    font-weight: 800;
+    color: #896cc9;
+ }
+.first-button{
+    margin-right: 15px !important;
+ }
+
+ 
+.container p{
+    font-size: 20px;
+    color: #636365;
+}
+
+.section{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 5rem;
+}
+
+.section-child-1{
+    place-self: center;
+}
+
+.section-child-2{
+    place-self: center;
+}
+
+.image{
+    height: 25rem;
+    width: 30rem;
+}

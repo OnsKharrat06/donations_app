@@ -1,0 +1,92 @@
+.admin-login{
+    padding: 100px 0;
+}
+
+
+.login{
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    margin-right: -15px;
+    padding: 30px 15px;
+    /* background-color: var(--theme-background-color-secondary); */
+    /* box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35); */
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    -ms-border-radius:4px;
+    -o-border-radius:4px;
+}
+.login h1{
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+.login h2{
+    text-align: center;
+    font-size: 16px;
+}
+.login p{
+    text-align: center;
+}
+form{
+    margin-top: 10px;
+}
+.login input{
+    width:100%;
+    margin-top: 20px;
+    outline: none;
+    padding:5px 0px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black !important;
+    font-size: 13px;
+    color: black;
+}
+.login button{
+    width: 100%;
+    margin-top: 20px;
+    outline: none;
+    padding: 5px 10px;
+    background-color: var(--theme-main-color) !important;
+    color: black !important;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+     border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+.login button:hover{
+    opacity: .9;
+}
+.login button:active{
+    transform: scale(.97);
+}
+.login p{
+    font-size: 12px;
+    margin-bottom: 0;
+}
+.login p a{
+    font-size: 12px;
+    margin-bottom: 0;
+    color: black;
+}
+
+
+.error-73{
+    padding: 5px 15px;
+    background-color: rgb(31, 0, 0);
+}
+.error p, small{
+    color: rgb(236, 99, 99) !important;
+}
+@media only screen and (min-width: 576px){
+    .login{
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

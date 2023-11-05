@@ -1,0 +1,49 @@
+
+a{
+  text-decoration: none; 
+}
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 999 !important;
+  background-color: #DEDEDE;
+}
+
+  
+ul {
+  list-style: none;
+}
+  
+  
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+  
+nav .brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+  
+nav .nav-items a {
+  margin: 0 1rem;
+}
+
+.nav-item {
+  color: #636365;
+}
+.nav-item:hover {
+  color: #896cc9;
+}
+
+.logo{
+  width: 5rem; /* Adjust the width of your logo image */
+  height: 4.5rem;
+}
