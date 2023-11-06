@@ -8,7 +8,6 @@ import Ikram from '../../../assets/Ikram.jpg';
 import Ines from '../../../assets/Ines.jpg';
 import Card from 'react-bootstrap/Card';
 import environment from "../../../environments/environment.js";
-import Footer from "../../../components/footer/Footer"; 
 
 function About(){
   return (
@@ -30,7 +29,7 @@ function About(){
             <div className="section-child-2">
                 <h1 className="heading">Our Mission </h1>
                 <p>
-                Facilitating positive change, through the creation of a user-friendly platform that connects individuals seeking assistance with generous donors, ensuring resources reach those who need them most. Together we make a difference.
+                Facilitating positive change through a user-friendly platform. <br></br> We help connect individuals seeking donations with generous donors in Tunisia, ensuring resources reach those who need them most. <br></br>Together we make a difference.
                 </p>
             </div>    
         </div>

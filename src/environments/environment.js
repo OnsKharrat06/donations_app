@@ -1,8 +1,8 @@
 const environment = {
     
     app : {
-      name : "3awinTN",
-      description: " Welcome to 3awinTn, your one place to provide and seek donations in Tunisia. This project stongly believes in the power of our community and aims at ending inequality in the field of education. Join us today, all you need is an account!",
+      name : "3awenTN",
+      description: " Welcome to 3awenTn, your one place to provide and seek donations in Tunisia. This project stongly believes in the power of our community and aims at ending inequality in the field of education. Join us today, all you need is an account!",
       slogan: "Donating to education, Building a better future.",
     },
    
