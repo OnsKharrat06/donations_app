@@ -98,7 +98,7 @@ const Footer = () => {
                   classes.marginTopOne
                )}
             >
-               &copy; {year} 3awinTN.
+               &copy; {year} 3awenTN.
             </Typography>
             <Typography
                variant="body1"
