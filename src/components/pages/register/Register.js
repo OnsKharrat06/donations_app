@@ -71,7 +71,7 @@ const Register = () => {
               <div className="col-md-4 col-sm-6 col-12">
                 <div className="login">
                   <div className="d-flex justify-content-between">
-                    <h1>Register</h1>
+                    <h1>Multi Step Register</h1>
                   </div>
                   <form id="signup-form" onSubmit={registerForm}>
                     {error !== "" ? <div className='error-73'><small>{error}</small></div> : <></>}
