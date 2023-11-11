@@ -19,11 +19,5 @@ const setSearchText = (text) => {
     };
 };
 
-const setRange = (text, value) => {
-  return {
-    type: "SET_RANGE",
-    payload: {text,value},
-  };
-};
 
-export {setRate, setCategory, setSearchText, setRange};
+export {setRate, setCategory, setSearchText};

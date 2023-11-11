@@ -1,6 +1,7 @@
+import Shop from "../shop/Shop";
 function Provided(){
 
-    return <h2>This is Provided Donations</h2>
+    return <Shop title="Provided Donations"></Shop>
 }
 
 export default Provided;

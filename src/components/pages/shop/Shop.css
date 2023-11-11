@@ -48,12 +48,21 @@ main aside {
     position: relative;
   }
   
+  
+  .container-search-popup{
+    display: grid;
+    grid-template-columns:repeat(5,1fr);
+    gap: 1rem;
+    
+  }
   .product-search-input{
-    width: 100%;
     padding: 8px 15px;
     border-radius: 5px;
-    border: none !important;
+    grid-column-start: span 4;
+    border:none !important; ;
   }
+
+  
   .product-search-input:active {
     border: none !important;
     -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175) !important;
@@ -141,3 +150,10 @@ main aside {
   img{
     z-index: 1 !important;
   }
+
+.heading{
+  font-size: 40px;
+  font-weight: 800;
+  color: #896cc9;
+}
+  

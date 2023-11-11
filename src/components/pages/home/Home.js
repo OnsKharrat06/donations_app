@@ -7,7 +7,7 @@ import ThemeButton from "../../buttons/ThemeButton";
 import Footer from "../../../components/footer/Footer";
 
 const Home = () => {
-  document.title = `${environment.app.name} | ${environment.app.description}`;
+  document.title = `${environment.app.name}`;
 
     return (
         <>
@@ -15,7 +15,7 @@ const Home = () => {
           <div className="container">
             <div className="row">
               <div className="col-md-6 pt-5">
-                <h1 className="pt-5 pb-2 heading">{environment.app.name}</h1>
+                <h1 className="pt-5 pb-2 heading">Welcome to {environment.app.name}</h1>
                 <p>{environment.app.description}</p>
                 <p style={{fontWeight:"bold", color: "#896cc9", fontStyle:"italic", textAlign:"center", marginBottom:"80px"}}>{environment.app.slogan}</p>
                 <Link to="/login" className="first-button"><ThemeButton  variant="contained" size="medium">Login</ThemeButton></Link>

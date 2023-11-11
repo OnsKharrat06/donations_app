@@ -1,6 +1,10 @@
+import Shop from "../shop/Shop";
 function Sought(){
 
-    return <h2>This is Sought Donations</h2>
+    return (<>
+        <Shop title="Saught Donations"></Shop>
+    </>
+    )
 }
 
 export default Sought;

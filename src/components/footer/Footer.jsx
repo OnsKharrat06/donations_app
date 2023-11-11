@@ -4,9 +4,12 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import EmailIcon from "@material-ui/icons/Email";
 import classNames from "classnames";
+import environment from "../../environments/environment.js";
+
 
 const useStyles = makeStyles((theme) => ({
    container: {
+      
       minHeight: "auto",
       height: 360,
       alignItems: "center",
@@ -98,7 +101,7 @@ const Footer = () => {
                   classes.marginTopOne
                )}
             >
-               &copy; {year} 3awenTN.
+               &copy; {year} {environment.app.name}
             </Typography>
             <Typography
                variant="body1"

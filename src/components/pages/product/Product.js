@@ -13,12 +13,12 @@ import Tooltip from '@mui/material/Tooltip';
 import environment from "../../../environments/environment.js";
 
 const Product = () => {
+    
     const products = useSelector((state) => state.products);
-    const [product, setProduct] = useState({ rating: { rate: 0 } });
+    const [product, setProduct] = useState({rate:0});
     let { id } = useParams();
-    const dispatch = useDispatch();
     id = parseInt(id);
-    document.title = `${product.title} | ${environment.app.name}`;
+    
 
     useEffect(() => {
         const extractFromProducts = () => {
@@ -31,51 +31,26 @@ const Product = () => {
         extractFromProducts();
     }, [products, id]);
 
-
+    document.title = ` Details: | ${product.name}`;
 
     return (<div>
         <div className="container pt-5">
             <div className="row">
                 <div className="col-md-4 p-3">
                     <div className="item-img">
-                        <img src={product.image} alt={product.title} width="100%" />
+                        <img src={product.image}  width="100%" />
                     </div>
                 </div>
                 <div className="col-md-8">
                     <div>
-                        <h1>{product.title}</h1>
+                        <h1>{product.name}</h1>
                         <h2>{product.category}</h2>
-                        <Rating name="read-only" value={Math.round(product.rating.rate)} readOnly />
+                        <Rating name="read-only" value={Math.round(product.rate)} readOnly />
 
                         <p>{product.description}</p>
-                        <h2>${product.price}</h2>
-                        {!product.presentInCart
-                            ?
-                            <ThemeButton onClick={() => {
-                                dispatch(addToCartProduct(product.id));
-                            }} variant="contained" size="medium">Add to Cart</ThemeButton>
-                            :
-                            <Button onClick={() => {
-                                dispatch(removeFromCartProduct(product.id));
-                            }} variant="contained" color="error" size="medium">Remove from Cart</Button>
-
-                        }
+                        <p>Provider Contact Information:</p>
+                        <p>{product.submittedBy}</p>
                         
-                        <Link className='add-cart-button' to="/cart"><Button variant="contained" size="medium">Visit cart</Button></Link>
-                        {!product.presentInWishlist
-                            ?
-                            <Tooltip title="Add to wishlist">
-                            <Fab sx={{height:40, width:40}} aria-label="like" onClick={() => {
-                                dispatch(addToWishlistProduct(product.id));}}>
-                                <FavoriteIcon />
-                            </Fab></Tooltip>
-                            :
-                            <Tooltip title="Remove from wishlist">
-                            <Fab sx={{height:40, width:40}}  aria-label="like" onClick={() => {
-                                dispatch(removeFromWishlistProduct(product.id));}}>
-                                <FavoriteIcon color="error"  />
-                            </Fab></Tooltip>
-                        }
                     </div>
                 </div>
             </div>

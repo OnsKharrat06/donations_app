@@ -41,53 +41,19 @@ const Header = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const [cartCount, setCartCount] = useState(0);
-  const [wishlistCount, setWishlistCount] = useState(0);
-  useEffect(()=>{
-    setCartCount((c)=>{
-        return 0;
-    });
-    setWishlistCount((c)=>{
-      return 0;
-  });
-    products.forEach(elem => {
-        if(elem.presentInCart === true){
-            setCartCount((c)=>{
-                return c + 1;
-            });
-        }
-        if(elem.presentInWishlist === true){
-          setWishlistCount((c)=>{
-              return c + 1;
-          });
-      }
-    });
-  },[products]);
     return (
         <>
             <section className= "header">
                 <nav>
                     <div className="brand">
-                        {/* <Link  to="/"> <img className="logo" src={icon} alt="Logo"/></Link> */}
+                        
                     </div>
                     <div className="nav-items">
-                    {!login ? <Link  className="nav-item" to="/"><span>HOME</span></Link> : <></>}
-                    {!login ? <Link  className="nav-item" to="/aboutus">ABOUT US</Link> : <></>}
-                    {!login ? <Link  className="nav-item" to="/provided">PROVIDED DONATION</Link> : <></>}
-                    {!login ? <Link  className="nav-item" to="/sought">SOUGHT DONATION</Link> : <></>}
+                    <Link  className="nav-item" to="/"><span>HOME</span></Link>
+                    <Link  className="nav-item" to="/aboutus">ABOUT US</Link>
+                    <Link  className="nav-item" to="/provided">PROVIDED DONATION</Link>
+                    <Link  className="nav-item" to="/sought">SOUGHT DONATION</Link>
                     {!login ? <Link className="nav-item" to="/login">LOGIN</Link> : <></>}
-                    {login ? <Link className="nav-item" to="/shop"> <Tooltip title="Shop"><AddBusinessIcon fontSize="medium" color="success"/></Tooltip></Link> : <></>}
-                    {login ? <Link className="nav-item" to="/cart"><Tooltip title="Cart"><IconButton sx={{color:"black"}} aria-label="cart">
-      <StyledBadge badgeContent={cartCount} color="primary">
-        <ShoppingCartIcon sx={{color:"#4615b2"}} />
-      </StyledBadge>
-    </IconButton></Tooltip></Link> : <></>}
-
-    {login ? <Link to="/wishlist"><Tooltip title="Wishlist"><IconButton sx={{color:"black"}} aria-label="cart">
-      <StyledBadge badgeContent={wishlistCount} color="error">
-        <FavoriteIcon sx={{color:"#b2102f"}} />
-      </StyledBadge>
-    </IconButton></Tooltip></Link> : <></>}
                     
 
                     {login ? <React.Fragment>

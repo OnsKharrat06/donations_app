@@ -2,13 +2,19 @@ import React from "react";
 import { useNavigate } from 'react-router';
 import "./Card.css";
 import Rating from '@mui/material/Rating';
+import ThemeButton from "../../../buttons/ThemeButton";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForwardTwoTone';
 
 const Card = (props)=>{
     let navigate = useNavigate();
+    const moreDetails=()=>{
+        navigate(`/shop/${props.id}`);
+
+    }
     return (
         <>
         <div className="col-lg-3 col-md-4 col-sm-6 pb-3">
-            <div className="pro-card" onClick={()=>{navigate(`/shop/${props.id}`);}} >
+            <div className="pro-card">
                 <div style={{display:"flex"}} >
                     <img src={props.image} alt="Item" height="200px" style={{margin:"0 auto"}} />
                 </div>
@@ -20,12 +26,16 @@ const Card = (props)=>{
                             overflow:"hidden"
                         }} 
 
->{props.title}</h6></div>
+                        >{props.name}</h6></div>
                         <div className="d-flex" style={{justifyContent:"space-between"}}>
-                            <h6>${props.price}</h6>
-                            <div className="pb-3"><Rating name="read-only" value={Math.round(props.rate)} readOnly /></div>
+                            <div className="pb-3"><Rating name="read-only" value={Math.round(props.state)} readOnly /></div>
                
                         </div>
+                        <div style={{textAlign:"center"}}>
+                        <ThemeButton style={{marginBottom:"10px", backgroundColor:"#896cc9"}} size="medium" onClick={moreDetails}><ArrowForwardIcon style={{marginRight:"5px"}}></ArrowForwardIcon>More Details</ThemeButton>
+                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>

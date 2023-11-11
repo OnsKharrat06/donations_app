@@ -6,10 +6,12 @@ import Vision from '../../../assets/Vision.png';
 import Ons from '../../../assets/Ons.jpg';
 import Ikram from '../../../assets/Ikram.jpg';
 import Ines from '../../../assets/Ines.jpg';
+import Houssem from '../../../assets/Houssem.jpg';
 import Card from 'react-bootstrap/Card';
 import environment from "../../../environments/environment.js";
 
 function About(){
+  document.title = ` About Us | ${environment.app.name}`;
   return (
     <>
       <div className="container">
@@ -89,7 +91,7 @@ function About(){
 
           {/* houssem */}
           <Card style={{border:"2px solid #896cc9"}}>
-            <Card.Img variant="top" src={Ons} />
+            <Card.Img variant="top" src={Houssem} />
             <Card.Body style={{textAlign:"center"}}>
               <Card.Title>{environment.developers.names[3]}</Card.Title>
               <Card.Text>

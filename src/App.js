@@ -9,6 +9,7 @@ import Header from "./components/header/Header.js";
 import Footer from "./components/footer/Footer";
 import Register from "./components/pages/register/Register.js";
 import Shop from "./components/pages/shop/Shop.js";
+import Card from "./components/pages/shop/card/Card";
 import { useDispatch} from "react-redux";
 import { setProducts } from "./redux/actions/productsAction";
 import axios from 'axios';
@@ -21,48 +22,26 @@ import Unauthorized from "./protect/Unauthorized";
 import Profile from "./components/pages/profile/Profile";
 import Password from "./components/pages/password/Password";
 import Global from "./protect/Global";
+import myproducts from '../src/components/data/myproducts';
 
 function App() {
   const dispatch = useDispatch();
 
-  
-
   useEffect(() => {
-    const fetchProducts = async () => {
-      let data = localStorage.getItem("products");
-      data = JSON.parse(data);
-      if(data) {
-        dispatch(setProducts(data));
-        return;
-      }
-      
-      let res = await axios.get(`https://fakestoreapi.com/products`);
-      res = await res.data;
-      // console.log(res);
-      res.forEach((elem)=>{
-          elem["presentInCart"] = false;
-          elem["presentInWishlist"] = false;
-          elem["price"] = Math.round(elem.price);
-          elem.rating["rate"] = Math.round(elem.rating.rate);
-      });
-      dispatch(setProducts(res));
-      localStorage.setItem("products", JSON.stringify(res));
-    }
-    fetchProducts();
+    dispatch(setProducts(myproducts));
   }, [dispatch]);
 
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<Unauthorized Component= {Home}/>} />
+        <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<Unauthorized Component= {Login}/>} />
-        <Route path="/aboutus" element={<Unauthorized Component= {About}/>} />
-        <Route path="/provided" element={<Unauthorized Component= {Shop}/>} />
-        <Route path="/sought" element={<Unauthorized Component= {Sought}/>} />
+        <Route path="/aboutus" element={<About/>} />
+        <Route path="/provided" element={<Provided/>} />
+        <Route path="/sought" element={<Sought/>} />
         <Route path="/register" element={<Unauthorized Component= {Register}/>} />
         <Route path="/shop" element={<Global Component= {Shop}/>} />
-        {/* <Route path="/shop" element={<Shop/>} /> */}
         <Route path="/shop/:id" element={<Authorized Component= {Product}/>} />
         <Route path="/profile" element={<Authorized Component= {Profile}/>} />
         <Route path="/change-password" element={<Authorized Component= {Password}/>} />
