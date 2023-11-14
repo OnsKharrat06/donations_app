@@ -27,9 +27,14 @@ const Card = (props)=>{
                         }} 
 
                         >{props.name}</h6></div>
-                        <div className="d-flex" style={{justifyContent:"space-between"}}>
-                            <div className="pb-3"><Rating name="read-only" value={Math.round(props.state)} readOnly /></div>
-               
+                        <div className="d-flex" style={{justifyContent:"start"}}>
+                            <h6>Item State :   </h6>
+                            
+                            <Rating   name="read-only" value={Math.round(props.state)} readOnly />
+                        </div>
+                        <div className="d-flex" style={{justifyContent:"start"}}>
+                            <h6>Added On : </h6>
+                            <span>{props.date}</span>
                         </div>
                         <div style={{textAlign:"center"}}>
                         <ThemeButton style={{marginBottom:"10px", backgroundColor:"#896cc9"}} size="medium" onClick={moreDetails}><ArrowForwardIcon style={{marginRight:"5px"}}></ArrowForwardIcon>More Details</ThemeButton>

@@ -36,21 +36,22 @@ const Product = () => {
     return (<div>
         <div className="container pt-5">
             <div className="row">
-                <div className="col-md-4 p-3">
+                <div className="col-md-4 p-1">
                     <div className="item-img">
                         <img src={product.image}  width="100%" />
                     </div>
                 </div>
                 <div className="col-md-8">
-                    <div>
-                        <h1>{product.name}</h1>
-                        <h2>{product.category}</h2>
-                        <Rating name="read-only" value={Math.round(product.rate)} readOnly />
-
-                        <p>{product.description}</p>
-                        <p>Provider Contact Information:</p>
-                        <p>{product.submittedBy}</p>
+                    <div className="p-5">
+                        <h1><span>Donation Name:</span>  {product.name}</h1>
+                        <h2 style={{marginBottom:"40px"}}>Donation Category: {product.category}</h2>
+                        <div className="d-flex" style={{justifyContent:"start"}}>
+                            <p style={{fontWeight:"bold"}}>Donation State: </p>
+                            <Rating name="read-only" value={Math.round(product.rate)} readOnly />
+                        </div>
                         
+                        <p><span style={{fontWeight:"bold"}}>Donation Description:</span>  {product.description}</p>
+                        <p><span style={{fontWeight:"bold"}}>Contact Information: </span> {product.submittedBy}</p>
                     </div>
                 </div>
             </div>

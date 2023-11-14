@@ -113,6 +113,7 @@ const Shop = (props) => {
                                     image={element.image}
                                     name={element.name}
                                     state={element.rate}
+                                    date={element.addedOn}
                                 />);
 
                             })}
