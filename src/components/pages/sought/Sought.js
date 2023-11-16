@@ -2,7 +2,7 @@ import Shop from "../shop/Shop";
 function Sought(){
 
     return (<>
-        <Shop title="Saught Donations"></Shop>
+        <Shop title="SAUGHT DONATIONS"></Shop>
     </>
     )
 }

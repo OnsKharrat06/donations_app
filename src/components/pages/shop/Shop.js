@@ -90,7 +90,7 @@ const Shop = (props) => {
                     <Divider />
                 </aside>
                 <main-content>
-                    <h1 className='heading'>Welcome to {props.title}</h1>
+                    <h1 className='heading'>{props.title}</h1>
                     <div className="container-search-popup">
                         <input className="product-search-input" type="text" onChange={(e) => { dispatch(setSearchText(e.target.value));}} value={filter.searchText} placeholder="Search donation here..." id="search" />
                         <BasicModal className="popup" name={props.title}></BasicModal>

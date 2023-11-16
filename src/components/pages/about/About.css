@@ -3,10 +3,11 @@ a{
  }
  
 .heading{
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 800;
     color: #896cc9;
- }
+    text-transform: uppercase;
+}
 .first-button{
     margin-right: 15px !important;
  }
@@ -19,7 +20,7 @@ a{
 
 .section{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2,1fr);
     grid-column-gap: 5rem;
 }
 
