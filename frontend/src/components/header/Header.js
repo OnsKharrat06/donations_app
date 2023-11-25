@@ -120,7 +120,13 @@ const Header = () => {
           </ListItemIcon>
           Change password
         </MenuItem></Link>
-        
+        <Link to="/myitems" >
+          <MenuItem sx={{ color: "black" }} onClick={handleClose}>
+        <ListItemIcon>
+        <FavoriteIcon fontSize="small" />
+        </ListItemIcon>
+        My donations
+        </MenuItem></Link>
         <MenuItem onClick={()=>{
                         localStorage.removeItem("currentUser");
                         navigate('/login');

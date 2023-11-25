@@ -15,7 +15,6 @@ import { setProducts } from "./redux/actions/productsAction";
 import axios from 'axios';
 import React, { useEffect} from 'react'
 import Product from "./components/pages/product/Product";
-
 import Lost from "./components/pages/lost/Lost"
 import Authorized from "./protect/Authorized";
 import Unauthorized from "./protect/Unauthorized";
@@ -23,6 +22,8 @@ import Profile from "./components/pages/profile/Profile";
 import Password from "./components/pages/password/Password";
 import Global from "./protect/Global";
 import myproducts from '../src/components/data/myproducts';
+import MyItems from './components/pages/profile/MyItems';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function App() {
         <Route path="/shop/:id" element={<Authorized Component= {Product}/>} />
         <Route path="/profile" element={<Authorized Component= {Profile}/>} />
         <Route path="/change-password" element={<Authorized Component= {Password}/>} />
+        <Route path="/myitems" element={<Authorized Component= {MyItems}/>} />
         <Route path="/*" element={<Global Component= {Lost}/>} />
         {/* <Route path="/*" element={<Lost />} /> */}
       </Routes>

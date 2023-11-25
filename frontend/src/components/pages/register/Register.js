@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Register.css";
 import environment from "../../../environments/environment.js";
 import { useNavigate } from 'react-router-dom';
@@ -89,10 +89,11 @@ const Register = () => {
         email: event.target["email"].value,
         username: event.target["user"].value,
         pass: event.target["pass1"].value,
-        additionalInfo: userType === "seeker" ? event.target[additionalInfo].value : null,
+        addInfo: event.target["Occupation"].value,
         city: event.target["city"].value,
         state: event.target["state"].value,
-        code: event.target["code"].value
+        code: event.target["code"].value,
+        usrType: userType,
       }
       if (!users) {
         users = [currUser];
@@ -119,9 +120,9 @@ const Register = () => {
                 fullWidth
                 labelId="userlabel"
                 id="usertype"
-                onChange={(e) => setUserType(e.target.value)}
+                value={userType}
+                onChange={e => setUserType(e.target.value)}
                 label="Are you a :"
-                
               >
                 <MenuItem  value="seeker">Donation Seeker</MenuItem>
                 <MenuItem  value="donor">Donation Provider</MenuItem>
@@ -145,7 +146,7 @@ const Register = () => {
               </FormControl>
             </div>
           )}
-          <ThemeButton onClick={registerForm}>Next</ThemeButton>
+          <ThemeButton type="submit">Next</ThemeButton>
         </div>
       );
     } 
@@ -221,13 +222,26 @@ const Register = () => {
                 variant="standard"
               />
             </div>
+            {userType === "donor" && (
+            <div>
+              <TextField
+                required
+                fullWidth
+                id="Occupation"
+                name="Occupation"
+                type="text"
+                placeholder="Occupation*"
+                variant="standard"
+              />
+            </div>
+          )}
           {userType === "seeker" && (
             <div>
               <TextField
                 required
                 fullWidth
-                id={additionalInfo}
-                name={additionalInfo}
+                id="Occupation"
+                name="Occupation"
                 type="text"
                 placeholder={additionalInfo === "person" ? "Occupation*" : "Institute Type*"}
                 variant="standard"

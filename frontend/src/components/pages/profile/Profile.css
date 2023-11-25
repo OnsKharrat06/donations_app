@@ -1,0 +1,57 @@
+.manage-name{
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    font-size: 100px !important;
+    font-weight: 800;
+}
+.manage-email{
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+@media only screen and (max-width: 500px) {
+    .manage-name{
+        font-size: 30px !important;
+    }
+    .manage-email{
+        font-size: 16px;
+    }
+}
+.Card{
+    display:'flex';
+    margin-left: 520px;
+    width:fit-content;
+    margin-bottom: 40px;
+    border-radius:20px;
+    
+   
+}
+
+.card-image .custom-image {
+    height: 150px; 
+  }
+.card-image img{
+
+  width:100%;
+  border-top-left-radius:10px;
+  border-top-right-radius: 10px;
+  object-fit:cover;
+  }
+  .profile-image img{
+    z-index:1;
+    width: 180px;
+    height:180px;
+    position:relative;
+    margin-top:-90px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100px;
+    border: 8px solid #fff;
+  }
+  .user-type-label {
+    color: #896cc9;
+    font-weight: 800;
+  }
