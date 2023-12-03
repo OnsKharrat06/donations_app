@@ -289,7 +289,7 @@ const Register = () => {
   };
 
   const [open, setOpen] = React.useState(true);
-  return (
+  return(
     <section>
       <div className="admin-login">
         <div className="container">
