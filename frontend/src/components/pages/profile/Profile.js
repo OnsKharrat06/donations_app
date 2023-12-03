@@ -11,7 +11,7 @@ const Profile = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const currentUser = JSON.parse(localStorage.getItem('user'));
     console.log(currentUser); 
     setUser(currentUser);
   }, []);
@@ -29,14 +29,13 @@ const Profile = () => {
       <Card.Title style={{textAlign: "center",fontSize: '40px',color:'#636365',fontWeight:'800px'}}>{user.name}</Card.Title>
       <Card.Text style={{display: "flex",flexDirection:"column",alignItems:"flex-start",color:"#636365", fontSize:"20px", paddingRight:"150px", paddingLeft:"40px"}}>
           
-              <p className='manage-usertype'><span className="user-type-label">User Type:</span> {user.usrType}</p>
-              <p className='manage-usertype'><span className="user-type-label">Occupation:</span> {user.addInfo}</p>
-              <p className='manage-usertype'><span className="user-type-label">User Name:</span> {user.username}</p>
-              <p className='manage-email'><span className="user-type-label">Email:</span> {user.email}</p>
-              <p className='manage-info'><span className="user-type-label">Phone Number:</span> {user.number}</p> {/* Display phone number */}
-              <p className='manage-info'><span className="user-type-label">City:</span> {user.city}</p>
-              <p className='manage-info'><span className="user-type-label">State:</span> {user.state}</p>
-              <p className='manage-info'><span className="user-type-label">Code:</span> {user.code}</p>
+      <p className='manage-usertype'><span className="user-type-label">User Type:</span> {user.usrType}</p>
+          <p className='manage-usertype'><span className="user-type-label">Occupation:</span> {user.addInfo}</p>
+          <p className='manage-usertype'><span className="user-type-label">User Name:</span> {user.username}</p>
+          <p className='manage-email'><span className="user-type-label">Email:</span> {user.email}</p>
+          <p className='manage-info'><span className="user-type-label">Phone Number:</span> {user.number}</p>
+          <p className='manage-info'><span className="user-type-label">City:</span> {user.city}</p>
+          <p className='manage-info'><span className="user-type-label">State:</span> {user.state}</p>
               
               
         </Card.Text>

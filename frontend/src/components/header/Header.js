@@ -10,6 +10,7 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import { Redirect } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -30,8 +31,14 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const Header = () => {
-    const login = useSelector((state) => state.login);
+  //const login = useSelector((state) => state.login);
+  
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  console.log(isLoggedIn);
+
+  //console.log(login)
     const navigate = useNavigate();
+    
     const products = useSelector((state) => state.products);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -41,6 +48,12 @@ const Header = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.setItem("isLoggedIn", "false");
+    navigate('/login');
+  };
+  
     return (
         <>
             <section className= "header">
@@ -49,14 +62,14 @@ const Header = () => {
                         
                     </div>
                     <div className="nav-items">
+                    {console.log()}
                     <Link  className="nav-item" to="/"><span>HOME</span></Link>
                     <Link  className="nav-item" to="/aboutus">ABOUT US</Link>
                     <Link  className="nav-item" to="/provided">PROVIDED DONATION</Link>
                     <Link  className="nav-item" to="/sought">SOUGHT DONATION</Link>
-                    {!login ? <Link className="nav-item" to="/login">LOGIN</Link> : <></>}
+                    {!isLoggedIn? <Link className="nav-item" to="/login">LOGIN</Link> : <></>}
                     
-
-                    {login ? <React.Fragment>
+                    {isLoggedIn ? <React.Fragment>
   
         <Tooltip title="Account">
           <IconButton
@@ -127,10 +140,7 @@ const Header = () => {
         </ListItemIcon>
         My donations
         </MenuItem></Link>
-        <MenuItem onClick={()=>{
-                        localStorage.removeItem("currentUser");
-                        navigate('/login');
-                    }} sx={{color:"black"}} 
+        <MenuItem sx={{ color: "black" }} onClick={handleLogout}
                     // onClick={handleClose}
                     >
           <ListItemIcon>

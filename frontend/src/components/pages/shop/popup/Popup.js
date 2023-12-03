@@ -34,6 +34,7 @@ export default function BasicModal(props) {
   const [selectedCategory, setSelectedCategory] = React.useState('');
   const [selectedSubmitionType, setselectedSubmitionType] = React.useState(false);
   const [selectedState, setSelectedState] = React.useState(0);
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
   const handleOpen = () => setOpen(true);
   
   const handleClose = () => {
@@ -62,10 +63,11 @@ export default function BasicModal(props) {
   };
   return (
     <div>
+      {isLoggedIn && (
       <ThemeButton onClick={handleOpen} variant="contained" style={{padding: "8px 3.3rem" ,backgroundColor: "#896cc9", gridColumnStart: "span 2" }}>
         Add Item <AddCircleIcon style={{ margin:"0 10px"}}></AddCircleIcon>
       </ThemeButton>
-
+      )}
       <Modal
         open={open}
         onClose={handleClose}

@@ -13,7 +13,7 @@ import Card from "./components/pages/shop/card/Card";
 import { useDispatch} from "react-redux";
 import { setProducts } from "./redux/actions/productsAction";
 import axios from 'axios';
-import React, { useEffect} from 'react'
+import React, { useEffect, useState} from 'react'
 import Product from "./components/pages/product/Product";
 import Lost from "./components/pages/lost/Lost"
 import Authorized from "./protect/Authorized";
@@ -26,11 +26,22 @@ import MyItems from './components/pages/profile/MyItems';
 
 
 function App() {
+
+  const url="http://localhost:9000/api/users";
+  const [users,setUsers]=useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setProducts(myproducts));
   }, [dispatch]);
+
+  useEffect(()=>{
+    axios.get(url).then((res)=>{
+      setUsers(res.data.users);
+      console.log(users);
+      console.log("whaaaaat",res);
+    });
+  },[]);
 
   return (
     <>
@@ -44,10 +55,10 @@ function App() {
         <Route path="/sought" element={<Sought/>} />
         <Route path="/register" element={<Unauthorized Component= {Register}/>} />
         <Route path="/shop" element={<Global Component= {Shop}/>} />
-        <Route path="/shop/:id" element={<Authorized Component= {Product}/>} />
-        <Route path="/profile" element={<Authorized Component= {Profile}/>} />
-        <Route path="/change-password" element={<Authorized Component= {Password}/>} />
-        <Route path="/myitems" element={<Authorized Component= {MyItems}/>} />
+        <Route path="/shop/:id" element={<Product/>} />
+        <Route path="/profile" element={<Profile/>} />
+        <Route path="/change-password" element={<Password/>} />
+        <Route path="/myitems" element={<MyItems/>} />
         <Route path="/*" element={<Global Component= {Lost}/>} />
         {/* <Route path="/*" element={<Lost />} /> */}
       </Routes>
