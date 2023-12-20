@@ -29,13 +29,6 @@ function App() {
   const [donation,setDonation]=useState([]);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    axios.get(url2).then((res)=>{
-    setDonation(res.data.donations);
-    console.log(donation);
-    console.log("samenan eh ehe",res);
-    });
-  },[]);
 
 
   return (

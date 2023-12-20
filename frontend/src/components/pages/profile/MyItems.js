@@ -36,18 +36,6 @@ const handleDelete = (id) => {
     });
 }
 
-  const [open, setOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(null);
-
-  // const handleUpdate = (item) => {
-  //   setSelectedItem(item);
-  //   setOpen(true);
-  // };
-
-  const handleClose = () => {
-    setOpen(false);
-    setSelectedItem(null);
-  };
 
   return (
     <div>
@@ -88,7 +76,7 @@ const handleDelete = (id) => {
           </div>
         ))}
       </div>
-      {open && <BasicModal open={open} handleClose={handleClose} item={selectedItem} />}
+     
     </div>
   );
 };

@@ -60,6 +60,7 @@ const Shop = (props) => {
 
 
     useEffect(() => {
+        console.log("Testin products from store")
         setFilteredProducts(products);
     }, [products]);
 

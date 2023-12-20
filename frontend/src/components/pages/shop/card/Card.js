@@ -1,5 +1,7 @@
-
-
+import other from '../../../../assets/other.png';
+import book from '../../../../assets/book.png';
+import schoolsup from '../../../../assets/schoolsup.png';
+import electronics from '../../../../assets/electronique.png';
 
 // CODE INES
 import React, { useState } from "react";
@@ -36,17 +38,16 @@ const Card = (props) => {
   var source;
 
   if(props.category==="books"){
-    source="https://media.istockphoto.com/id/157482029/photo/stack-of-books.jpg?s=612x612&w=0&k=20&c=ZxSsWKNcVpEzrJ3_kxAUuhBCT3P_dfnmJ81JegPD8eE="
+    source=book
   }
   else if(props.category==="schoolSupplies"){
-    source ="https://img.freepik.com/premium-vector/school-supplies-backpack-pencils-brushes-paints-ruler-sharpener-stickers-calculator-books_647843-6.jpg"
-
+    source =schoolsup
   }
   else if(props.category==="electronics"){
-    source ="https://cdn.refurb.eu//files/refurb.eu/BareboneProductFile/239-apple-ipad-pro-105.jpg"
+    source =electronics
 
   }else{
-    source ="https://media.istockphoto.com/id/520619396/photo/isolated-shot-of-opened-blank-cardboard-box-on-white-background.jpg?s=612x612&w=0&k=20&c=SEWCBNgOWaQH-sBqq5UnmXXFxhpMPdS9btt6MqX-85c="
+    source =other
 
   }
   return (
@@ -94,14 +95,15 @@ const Card = (props) => {
                   </div>
                 </div>
               )}
-
-              <div style={{ textAlign: "center" }}>
+               <br></br>
+              <div style={{ textAlign: "center", display: "flex", alignItems: "flex-start",gap:"20px", justifyContent: "flex-start" }}>
                 <ThemeButton
                   style={{
                     marginBottom: "10px",
                     backgroundColor: "#896cc9",
                     marginTop: "10px",
-                    marginRight: "20px" // Added space to the right of the button
+                    /*marginRight: "20px",*/// Added space to the right of the button
+                    height:"50px"
                   }}
                   size="medium"
                   onClick={() => handleDelete()}
@@ -111,10 +113,13 @@ const Card = (props) => {
 
                 <ThemeButton
                   style={{
+                    fontSize:"13px",
                     marginBottom: "10px",
                     backgroundColor: "#896cc9",
                     marginTop: "10px",
-                    marginLeft: "20px" // Added space to the left of the button
+                   /* marginLeft: "20px",*/ // Added space to the left of the button
+                    height:"50px",
+                    width:"150px"
                   }}
                   size="medium"
                   onClick={toggleShowMore}

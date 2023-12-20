@@ -3,63 +3,59 @@ import "./Password.css";
 import environment from "../../../environments/environment.js";
 import { useNavigate } from "react-router-dom";
 import ThemeButton from "../../buttons/ThemeButton";
+import axios from "axios";
+
 const Password = () => {
+
+    const url = "http://localhost:9000/api/users";
     let navigate = useNavigate();
+
     document.title = `Change password | ${environment.app.name}`;
     const [error, setError] = useState("");
-    let [currUser, setCurrUser] = useState({});
-    useEffect(()=>{
-        let user = JSON.parse(localStorage.getItem("currentUser"));
-        if(user){
-            setCurrUser(user);
-        }
-    },[]);
+    const [user, setUser] = useState(null);
+    const [userUpdate, setUpdate] = useState({
+        passOld: "",
+        passNew: "",
+        passCon:""
 
-    function passwordMatch(pass1, pass2){
-        if(pass1 === pass2) return true;
-        return false;
-    }
-    function logout(){
-        localStorage.removeItem("currentUser");
-        navigate("/login");
-    } 
+    });
+    const reload = () => window.location.reload();
 
-    const changePasswordForm = (event) => {
-        event.preventDefault();
-        if(event.target["passOld"].value.length < 8 ){
-            setError("Old password must contain minimum 8 characters!");
-            return;
-          }
-        if (!passwordMatch(event.target["passNew"].value, event.target["passNew2"].value)) {
-            setError("Confirm password mismatch!");
-            return;
-        }
-        if(event.target["passNew"].value.length < 8 ){
-            setError("New password must contain minimum 8 characters!");
-            return;
-          }
-        let users = JSON.parse(localStorage.getItem("users"));
-        if(users){
-            users.forEach(element => {
-                if (element.email === currUser.email) {
-                    if (element.pass === event.target["passOld"].value) {
-                        element["pass"] = event.target["passNew"].value;
-                        localStorage.setItem("users", JSON.stringify(users));
-                        logout();
-                        return;
-                    }
-                }
-            });
+
+
+    useEffect(() => {
+        const currentUser = JSON.parse(localStorage.getItem('user'));
+        console.log("testing for current user:", currentUser); 
+        setUser(currentUser);
+      }, []);
+
+    const handleChange = (e) => {
+        setUpdate({ ...userUpdate, [e.target.id]: e.target.value });
+    };
+    const handleUpdate = async (e) => {
+        e.preventDefault();
+        if (userUpdate.passOld !== user.user.password) {
             setError("Incorrect old password!");
             return;
         }
-        else{
-            setError("User not registered!");
+        if(userUpdate.passCon !== userUpdate.passNew){
+            setError("Confirm password mismatch!");
             return;
         }
+        try {
+            await axios.put(`${url}/${user.user.id}`,{password:userUpdate.passNew});
+        } catch (error) {
+            console.log(error);
+        }
+        logout();
+        reload();
+    };
+
+    function logout() {
+        localStorage.removeItem("currentUser");
+        localStorage.setItem("isLoggedIn", "false");
+        navigate("/login");
     }
-
-
 
     return (
         <>
@@ -75,13 +71,13 @@ const Password = () => {
                                         <h1>CHANGE PASSWORD</h1>
                                     </div>
 
-                                    <form onSubmit={changePasswordForm}>
-                                    {error !== "" ? <div className='error-75'><small>{error}</small></div> : <></>}
-                   
-                                        <input type="password" id="passOld" name="passOld" placeholder="Old Password"  />
-                                        <input type="password" id="passNew" name="passNew" placeholder="New Password"  />
-                                        <input type="password" id="passNew2" name="passNew2" placeholder="Confirm New Password"  />
+                                    <form onSubmit={handleUpdate}>
+                                        {error !== "" ? <div className='error-75'><small>{error}</small></div> : <></>}
 
+                                        <input onChange={handleChange} type="password" id="passOld" name="passOld" placeholder="Old Password" />
+                                        <input onChange={handleChange} type="password" id="passNew" name="passNew" placeholder="New Password" />
+                                        <input onChange={handleChange} type="password" id="passCon" name="passNew2" placeholder="Confirm New Password" />
+                                        <p>{`${userUpdate.passNew} ${userUpdate.passOld} ${userUpdate.passCon}`}</p>
                                         <ThemeButton type="submit" >CHANGE PASSWORD</ThemeButton>
                                         <br />
 
