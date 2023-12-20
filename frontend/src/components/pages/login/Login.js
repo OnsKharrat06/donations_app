@@ -12,6 +12,7 @@ import { Box } from '@mui/system';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux"; 
+import Profile from "../profile/Profile.js";
 const Login = () => {
   
    let navigate = useNavigate();
@@ -27,7 +28,8 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(url, user)
+    axios
+    .post(url, user)
     .then((response) => {
       console.log(response.data);
       localStorage.setItem("isLoggedIn", "true");
@@ -37,7 +39,7 @@ const Login = () => {
       // Display user object in console
       console.log("User object:", response.data);
       // Redirect user to the appropriate page
-      navigate(`/shop`);
+      navigate(`/profile`);
     })
       .catch((error) => {
         console.error("There was an error!", error);
@@ -76,7 +78,7 @@ const Login = () => {
        setOpen(true);
        return;
      }
-     let users = JSON.parse(localStorage.getItem(user));
+     let users = JSON.parse(localStorage.getItem(user)); //how? and why?
      if (users) {
        users.forEach(element => {
          if (element.email === event.target[user.email].value && element.pass === event.target[user.password].value) {

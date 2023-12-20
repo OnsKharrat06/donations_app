@@ -14,34 +14,29 @@ import { useDispatch} from "react-redux";
 import { setProducts } from "./redux/actions/productsAction";
 import axios from 'axios';
 import React, { useEffect, useState} from 'react'
-import Product from "./components/pages/product/Product";
+
 import Lost from "./components/pages/lost/Lost"
-import Authorized from "./protect/Authorized";
-import Unauthorized from "./protect/Unauthorized";
 import Profile from "./components/pages/profile/Profile";
 import Password from "./components/pages/password/Password";
-import Global from "./protect/Global";
-import myproducts from '../src/components/data/myproducts';
 import MyItems from './components/pages/profile/MyItems';
+
 
 
 function App() {
 
   const url="http://localhost:9000/api/users";
-  const [users,setUsers]=useState([]);
+  const url2="http://localhost:9000/api/donations"
+  const [donation,setDonation]=useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setProducts(myproducts));
-  }, [dispatch]);
-
-  useEffect(()=>{
-    axios.get(url).then((res)=>{
-      setUsers(res.data.users);
-      console.log(users);
-      console.log("whaaaaat",res);
+    axios.get(url2).then((res)=>{
+    setDonation(res.data.donations);
+    console.log(donation);
+    console.log("samenan eh ehe",res);
     });
   },[]);
+
 
   return (
     <>
@@ -49,17 +44,15 @@ function App() {
       <Routes>
         
         <Route path="/" element={<Home/>}/>
-        <Route path="/login" element={<Unauthorized Component= {Login}/>} />
+        <Route path="/login" element={ <Login/>} />
         <Route path="/aboutus" element={<About/>} />
         <Route path="/provided" element={<Provided/>} />
         <Route path="/sought" element={<Sought/>} />
-        <Route path="/register" element={<Unauthorized Component= {Register}/>} />
-        <Route path="/shop" element={<Global Component= {Shop}/>} />
-        <Route path="/shop/:id" element={<Product/>} />
+        <Route path="/register" element={<Register/>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/change-password" element={<Password/>} />
-        <Route path="/myitems" element={<MyItems/>} />
-        <Route path="/*" element={<Global Component= {Lost}/>} />
+        <Route path="/mydonations" element={<MyItems/>} />
+        <Route path="/*" element={<Lost/>} />
         {/* <Route path="/*" element={<Lost />} /> */}
       </Routes>
       <Footer />

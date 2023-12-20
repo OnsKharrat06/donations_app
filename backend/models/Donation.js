@@ -1,6 +1,6 @@
 const { Sequelize , DataTypes} = require("sequelize");
 const {sequelize}=require("../Configuration/connectDB")
-const Donation = sequelize.define("donation", {
+const donations = sequelize.define("donations", {
 id: {
 type: DataTypes.INTEGER,
 autoIncrement: true,
@@ -25,7 +25,7 @@ image: {
     type: DataTypes.STRING,
     },
     date: {
-    type: DataTypes.TIME,
+    type: DataTypes.STRING,
     },
     category:{
     type:DataTypes.STRING,
@@ -36,4 +36,4 @@ image: {
     
     }, {timestamps: false ,} // Add this to disable the default timestamps
     );
-    module.exports=Donation;
+module.exports=donations;

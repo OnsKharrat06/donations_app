@@ -133,7 +133,7 @@ const Header = () => {
           </ListItemIcon>
           Change password
         </MenuItem></Link>
-        <Link to="/myitems" >
+        <Link to="/mydonations" >
           <MenuItem sx={{ color: "black" }} onClick={handleClose}>
         <ListItemIcon>
         <FavoriteIcon fontSize="small" />

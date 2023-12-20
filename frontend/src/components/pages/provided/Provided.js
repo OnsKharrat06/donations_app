@@ -1,7 +1,7 @@
 import Shop from "../shop/Shop";
 function Provided(){
 
-    return <Shop title="PROVIDED DONATIONS"></Shop>
+    return <Shop type ="provided" title="PROVIDED DONATIONS"></Shop>
 }
 
 export default Provided;

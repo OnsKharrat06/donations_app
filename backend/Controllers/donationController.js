@@ -1,5 +1,5 @@
 const Donation = require("../models/Donation");
-const donation = require("../models/Donation");
+
 
 const getDonation = async (requset, response) => {
     try {
@@ -9,7 +9,7 @@ const getDonation = async (requset, response) => {
         response.status(500).json({ msg: "error on getting Donation" });
     }
 };
-//get one user
+//get one donation
 const getOneDonation = async (req, res) => {
     const id = req.params.id;
     try {
@@ -26,19 +26,19 @@ const getOneDonation = async (req, res) => {
             .json({ msg: "Error on getting one doantion", error: error.message });
     }
 };
-//post one user
+//post one donation
 const postDonation = async (request, response) => {
     try {
         const newDonation = request.body;
-        try{ 
-            const donation = await donation.findOne({ where: { id: newDonation.id } });
+        /*try{ 
+            const donation = await Donation.findOne({ where: { id: newDonation.id } });
             if (donation) {
                 return response.status(400).json({ msg: "donation already exists" });
             }
         }catch(e){
             console.log(e);
             response.status(400).json({msg:"schema not valid"})
-        }
+        }*/
         const createdDonation = await Donation.create(newDonation);
         response.status(200).json({ donation: createdDonation, msg: " Donation added successfully" });
     } catch (error) {
@@ -48,7 +48,7 @@ const postDonation = async (request, response) => {
             .json({ msg: "Error on adding donation: ", error: error.message });
     }
 };
-//update one user
+//update one donation
 const putDonation = async (req, res) => {
     const id = req.params.id;
     const updatedData = req.body;

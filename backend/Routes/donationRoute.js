@@ -13,9 +13,9 @@ const {
 // Route definitions
 
 
-donationRoute.get("/donation", getDonation);
-donationRoute.get("/donation/:id", getOneDonation);
-donationRoute.post("/donation", postDonation);
-donationRoute.put("/donation/:id", putDonation);
-donationRoute.delete("/donation/:id", deleteDonation);
+donationRoute.get("/donations", getDonation);
+donationRoute.get("/donations/:id", getOneDonation);
+donationRoute.post("/donations", postDonation);
+donationRoute.put("/donations/:id", putDonation);
+donationRoute.delete("/donations/:id", deleteDonation);
 module.exports = donationRoute;
