@@ -101,7 +101,7 @@ main aside {
   main-content .items {
     display: flex;
     width: auto;
-    overflow-x: scroll;
+    
     padding: 1rem 0;
     gap: 1rem;
   }

@@ -77,7 +77,7 @@ const Password = () => {
                                         <input onChange={handleChange} type="password" id="passOld" name="passOld" placeholder="Old Password" />
                                         <input onChange={handleChange} type="password" id="passNew" name="passNew" placeholder="New Password" />
                                         <input onChange={handleChange} type="password" id="passCon" name="passNew2" placeholder="Confirm New Password" />
-                                        <p>{`${userUpdate.passNew} ${userUpdate.passOld} ${userUpdate.passCon}`}</p>
+                                        
                                         <ThemeButton type="submit" >CHANGE PASSWORD</ThemeButton>
                                         <br />
 

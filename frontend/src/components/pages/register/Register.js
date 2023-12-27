@@ -71,6 +71,15 @@ const Register = () => {
 
   const handleSubmit = () => {
     if (step === 2) {
+      const requiredFields = ['name', 'phone', 'email', 'username', 'password', 'occupation', 'typinst', 'city', 'state', 'zipcode'];
+  
+      const isFormValid = requiredFields.every(field => user[field].trim() !== '');
+  
+      if (!isFormValid) {
+        setError("Please fill in all the required fields.");
+        return;
+      }
+  
       axios.post(url, user)
         .then((response) => {
           console.log(response.data);

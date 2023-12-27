@@ -1,6 +1,6 @@
 const express = require("express");
 const donationRoute = express.Router();
-// Import the controller functions from the user controller file.
+// Import the controller functions from the donation controller file.
 // These functions define the logic that will be executed when a route is
 const {
     getDonation,
